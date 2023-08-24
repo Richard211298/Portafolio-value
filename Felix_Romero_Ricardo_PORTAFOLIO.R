@@ -1,4 +1,3 @@
-##########Examen Primer parcial###############################
 #########Portafolio###########################################
 ###Felix Romero Ricardo#######################################
 #4em1#########################################################
@@ -8,7 +7,7 @@
 #install.packages("matrixStats")
 #install.packages("tidyquant") # Para descargar los datos
 #install.packages("tidyr") # Permite manipular y transformar los datos
-#install.packages("plotly") # Para hacer gráficos chulos
+#install.packages("plotly") # Para hacer grÃ¡ficos chulos
 #install.packages("recipes")
 #install.packages("timetk") # Para manipular las series de tiempo
 #install.packages("quantmod") # Para descargar los datos
@@ -17,21 +16,21 @@
 #install.packages("forecast") #Pronosticar series de tiempo
 #install.packages("timeSeries") #Trabajar con series de tiempo
 #install.packages("tframePlus") #Trabajar con series de tiempo
-#install.packages("ggplot2") #Gráficos coquetos
-#install.packages("dplyr") #Gráficos coquetos y dinámicos
-#install.packages("plotly") #Gráficos coquetos y dinámicos
-#install.packages("hrbrthemes") #Elegir diferentes diseños para gráficos
-#install.packages("ggthemes") #Elegir diferentes diseños para gráficos
+#install.packages("ggplot2") #GrÃ¡ficos coquetos
+#install.packages("dplyr") #GrÃ¡ficos coquetos y dinÃ¡micos
+#install.packages("plotly") #GrÃ¡ficos coquetos y dinÃ¡micos
+#install.packages("hrbrthemes") #Elegir diferentes diseÃ±os para grÃ¡ficos
+#install.packages("ggthemes") #Elegir diferentes diseÃ±os para grÃ¡ficos
 #install.packages("tidyverse")  # Permite manipular y transformar los datos
-#install.packages("dygraphs") #Gráficos dinámicos
-#install.packages("gridExtra") #Gráficos dinámicos
+#install.packages("dygraphs") #GrÃ¡ficos dinÃ¡micos
+#install.packages("gridExtra") #GrÃ¡ficos dinÃ¡micos
 #install.packages("corrplot")
 ###################################Llamar Paqueterias a ocupar####
 library(TTR)
 library(matrixStats)
 library(tidyquant) # Para descargar los datos
 library(tidyr) # Permite manipular y transformar los datos
-library(plotly) # Para hacer gráficos chulos
+library(plotly) # Para hacer grÃ¡ficos chulos
 library(recipes)
 library(timetk) # Para manipular las series de tiempo
 library(quantmod) # Para descargar los datos
@@ -40,14 +39,14 @@ library(tseries) #Trabajar con series de tiempo
 library(forecast) #Pronosticar series de tiempo
 library(timeSeries) #Trabajar con series de tiempo
 library(tframePlus) #Trabajar con series de tiempo
-library(ggplot2) #Gráficos coquetos
-library(dplyr) #Gráficos coquetos y dinámicos
-library(plotly) #Gráficos coquetos y dinámicos
-library(hrbrthemes) #Elegir diferentes diseños para gráficos
-library(ggthemes) #Elegir diferentes diseños para gráficos
+library(ggplot2) #GrÃ¡ficos coquetos
+library(dplyr) #GrÃ¡ficos coquetos y dinÃ¡micos
+library(plotly) #GrÃ¡ficos coquetos y dinÃ¡micos
+library(hrbrthemes) #Elegir diferentes diseÃ±os para grÃ¡ficos
+library(ggthemes) #Elegir diferentes diseÃ±os para grÃ¡ficos
 library(tidyverse)  # Permite manipular y transformar los datos
-library(dygraphs) #Gráficos dinámicos
-library(gridExtra) #Gráficos dinámicos
+library(dygraphs) #GrÃ¡ficos dinÃ¡micos
+library(gridExtra) #GrÃ¡ficos dinÃ¡micos
 library(corrplot)
 
 
@@ -55,7 +54,7 @@ library(corrplot)
 ####Seleccionar acciones (Tickerlist) y fechas################
 #####correr por partes las secciones de la A)B)...############
 ###############################A)Cantidad de Tickets(MAS DE 1)####
-NuA=readline(prompt="�Cuantas acciones quiere en el portafolio?: ")
+NuA=readline(prompt="¿Cuantas acciones quiere en el portafolio?: ")
  
 #######################################B)Nombre de los tickers####
 
@@ -69,7 +68,7 @@ for (i in 1:NuA)
 #######################C)CONFIRMAR TICKETS(por si se equivoca)####
 
 print(TickerList)
-NN=readline(prompt="�Estan bien escritas?(1=Si|0=NO): ")
+NN=readline(prompt="¿Estan bien escritas?(1=Si|0=NO): ")
 
 ###########################################D)confirmar tickets####
 
@@ -87,17 +86,17 @@ if (NN==0) { for (i in 1:NuA)
 
 #################################E)Especificar fecha de inicio####
 
-Fechadeinicio=readline(prompt="Desde que fecha quiere recopilar datos?(A�o-Mes-Dia): ")
+Fechadeinicio=readline(prompt="Desde que fecha quiere recopilar datos?(Año-Mes-Dia): ")
 
 #################################F)Especificar hasta que fecha####
 
-NC=readline(prompt="�Quiere ocupar la fecha de hoy?(1=Si|0=NO): ")
+NC=readline(prompt="¿Quiere ocupar la fecha de hoy?(1=Si|0=NO): ")
 
 ######################################################G)CORRER#####
 
 NC=as.numeric(NC)
 if (NC==0) { 
-  Hoy=readline(prompt="Hasta que fecha quiere que termine?(A�o-Mes-Dia): ")
+  Hoy=readline(prompt="Hasta que fecha quiere que termine?(Año-Mes-Dia): ")
 } else 
   Hoy=today("UTC")
 
@@ -136,10 +135,10 @@ precios<- tq_get(TickerList,
             axis.title.y = element_text(face="bold", vjust=1.5, colour="goldenrod4", size=rel(1)),
             axis.text = element_text(colour = "dodgerblue4")) +
       
-      ggtitle(paste("Precio de cierre de", QUEHACEESTO[i])) #Configuro un t�tulo por grupo
+      ggtitle(paste("Precio de cierre de", QUEHACEESTO[i])) #Configuro un título por grupo
     
     ABDFG=ggplotly(RickAndMorty) 
-    print (ABDFG) #Mostrar gr�ficos en la pantalla
+    print (ABDFG) #Mostrar gráficos en la pantalla
   }
   
 ##############################################################
@@ -149,23 +148,23 @@ precios<- tq_get(TickerList,
 ##################Empieza portafolio##########################
 ############################################1)ANTES DE INICIAR####
 
-TM=readline(prompt="�Nombre de la tasa a Comparar?: ")
+TM=readline(prompt="¿Nombre de la tasa a Comparar?: ")
 
 ############################################2)ANTES DE INICIAR####
 
-TR=readline(prompt="�Cual es el valor de la tasa(en decimales)?: ")
+TR=readline(prompt="¿Cual es el valor de la tasa(en decimales)?: ")
 ############################################3)ANTES DE INICAR ####
 
 
-TL=readline(prompt="�Cuantos portafolios quiere simular?: ")
+TL=readline(prompt="¿Cuantos portafolios quiere simular?: ")
 
 #############################################4)ANTES DE INICAR####
 
-NP=readline(prompt="�A que tiempo(A�O=1,2A�OS=2,Mes=.01,2Meses=.02...)?: ")
+NP=readline(prompt="¿A que tiempo(AÑO=1,2AÑOS=2,Mes=.01,2Meses=.02...)?: ")
 
 #############################################5)ANTES DE INICAR####
 
-SED=readline(prompt="�SEMILLA PARA LOS PORTAFOLIO?: ")
+SED=readline(prompt="¿SEMILLA PARA LOS PORTAFOLIO?: ")
 
 #########################################################CORER####
 TM=as.character(TM)
@@ -222,7 +221,7 @@ str(TickerList)
   cov_mat <- cov(log_ret_xts) * NP
   #print(round(cov_mat,4))   #redondea a 4 decimales
   
-  #Calcula la matriz de correlación
+  #Calcula la matriz de correlaciÃ³n
   cor_mat <- cor(log_ret_xts)
   corrplot.mixed(cor_mat)
   print(round(cor_mat,4))   #redondea a 4 decimales
@@ -396,7 +395,7 @@ str(TickerList)
    geom_point(aes(x = Risk,
                   y = Return), data = max_var, color = 'yellow')
   #annotate('text', x = 0.20, y = 0.42, label = "Mejor Sharpe") +
-  #annotate('text', x = 0.18, y = 0.01, label = "Portafolio de mínima varianza") +
+  #annotate('text', x = 0.18, y = 0.01, label = "Portafolio de mÃ­nima varianza") +
   #annotate(geom = 'segment', x = 0.14, xend = 0.135,  y = 0.01,
   #       yend = 0.06, color = 'red', arrow = arrow(type = "open")) +
   #annotate(geom = 'segment', x = 0.22, xend = 0.2275,  y = 0.405,
@@ -409,11 +408,11 @@ str(TickerList)
   
 ###############################EXTRA-pronostico para convencer####
 
-QUESTION=readline(prompt="�Quiere ver el pronostico de una accion del portafolio?(Si=1|No=0): ")
+QUESTION=readline(prompt="¿Quiere ver el pronostico de una accion del portafolio?(Si=1|No=0): ")
 
 ##################################################A)QUE TICKET#### 
   
-accion=readline(prompt="�Cual?: ")  
+accion=readline(prompt="¿Cual?: ")  
   
 ##(INSTALAR PRIMERA VEZ)#B)INSTALAR PAQUETES O LLAMAR PAQUETES####
   
@@ -463,14 +462,14 @@ if  (QUESTION==1){
   ################################################################################
   ####separar fechas####
   tablapro$fecha_dup=tablapro$fecha#####crear dubplicado fecha
-  tablapro=tablapro %>% separate(fecha,c("A�o","Mes","Dia"))####separar fecha
+  tablapro=tablapro %>% separate(fecha,c("Año","Mes","Dia"))####separar fecha
   ###str(tablapro)
   ###convertir en numeros 
-  tablapro$A�o=as.numeric(tablapro$A�o)
+  tablapro$Año=as.numeric(tablapro$Año)
   tablapro$Mes=as.numeric(tablapro$Mes)
   tablapro$Dia=as.numeric(tablapro$Dia)
   ###
-  ##############crear tabla nueva escalada dia mes y a�o ##########################3
+  ##############crear tabla nueva escalada dia mes y año ##########################3
   ####semilla
   set.seed(SED)
   tablapro_sc=as.data.frame (cbind(tablapro$precio,tablapro$fecha_dup,scale(tablapro[,c(2:4)])))####Escalado
@@ -491,7 +490,7 @@ if  (QUESTION==1){
   
   
   ######regresion arboles con 100 sin datos escalados #####################
-  mod_rf=randomForest( precio~ A�o + Mes + Dia ,data=tablapro[train_data,],
+  mod_rf=randomForest( precio~ Año + Mes + Dia ,data=tablapro[train_data,],
                        type= "regression", ntree= 100)
   
   pred_rf=predict(mod_rf,test)
